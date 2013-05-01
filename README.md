@@ -8,7 +8,7 @@ grunt template for FirefoxOS.
 
 ```
 # install this template
-git clone git@github.com:fnobi/firefoxapp-grunt.git ~/.grunt-init/firefoxapp-grunt
+git clone git@github.com:nobii/firefoxapp-grunt.git ~/.grunt-init/firefoxapp
 
 # project scaffolding
 mkdir my-firefox-app
