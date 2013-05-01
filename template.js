@@ -25,12 +25,17 @@ exports.template = function (grunt, init, done) {
         }
     ], function(err, props) {
         // set require scripts
+        var script_tag = function (path) {
+            return '<script type="text/javascript" src="' + path + '"></script>';
+        };
+
         var scripts = [];
+        scripts.push(script_tag('js/lib/jquery-1.9.1.min.js'));
         if (props.use_backbone.match(/^y/)) {
-            scripts.push('<script type="text/javascript" src="js/lib/underscore-min.js">');
-            scripts.push('<script type="text/javascript" src="js/lib/backbone-min.js">');
+            scripts.push(script_tag('js/lib/underscore-min.js'));
+            scripts.push(script_tag('js/lib/backbone-min.js'));
         }
-        scripts.push('<script type="text/javascript" src="js/main.js">');
+        scripts.push(script_tag('js/main.js'));
 
         props.scripts = scripts.join('\n');
 
