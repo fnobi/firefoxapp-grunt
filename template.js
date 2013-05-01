@@ -15,7 +15,14 @@ exports.template = function (grunt, init, done) {
         init.prompt('name'),
         init.prompt('description'),
         init.prompt('author_name'),
-        init.prompt('author_url')
+        init.prompt('author_url'),
+        {
+            name: 'use_backbone',
+            message: 'Do you use "backbone.js"? [y|n]',
+            default: 'n',
+            validator: /^(y|n)$/,
+            warning: 'Must be "y" or "n".'
+        }
     ], function(err, props) {
         // Files to copy (and process).
         var files = init.filesToCopy(props);
