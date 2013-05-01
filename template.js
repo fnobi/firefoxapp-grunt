@@ -21,7 +21,10 @@ exports.template = function (grunt, init, done) {
         var files = init.filesToCopy(props);
 
         // Actually copy (and process) files.
-        init.copyAndProcess(files, props, {});
+        init.copyAndProcess(files, props, { noProcess: [
+            'img/**',
+            'js/lib/**'
+        ]});
 
         // Generate package.json file, used by npm and grunt.
         init.writePackageJSON('package.json', {
