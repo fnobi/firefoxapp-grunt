@@ -28,6 +28,7 @@ exports.template = function (grunt, init, done) {
             name            : props.name,
             version         : '0.1.0',
             npm_test        : 'grunt test',
+            description     : props.description,
             node_version    : '>=0.8.0 <0.9.1',
             devDependencies : {
                 'grunt'                   : '~0.4.0',
