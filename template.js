@@ -20,10 +20,20 @@ exports.template = function (grunt, init, done) {
             name: 'use_backbone',
             message: 'Do you use "backbone.js"? [y|n]',
             default: 'n',
-            validator: /^(y|n)$/,
+            validator: /^(y|n)/,
             warning: 'Must be "y" or "n".'
         }
     ], function(err, props) {
+        // set require scripts
+        var scripts = [];
+        if (props.use_backbone.match(/^y/)) {
+            scripts.push('<script type="text/javascript" src="js/lib/underscore-min.js">');
+            scripts.push('<script type="text/javascript" src="js/lib/backbone-min.js">');
+        }
+        scripts.push('<script type="text/javascript" src="js/main.js">');
+
+        props.scripts = scripts.join('\n');
+
         // Files to copy (and process).
         var files = init.filesToCopy(props);
 
